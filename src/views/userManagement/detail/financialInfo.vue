@@ -1,0 +1,105 @@
+<template>
+	<div>
+    <div class="info-list">
+      <h4 class="step-title-tag"><i class="icon-tag"></i>打款信息</h4>
+      <table class="form-table">
+        <tr>
+          <td>账户名称：</td>
+          <td>{{info.accountName}}</td>
+        </tr>
+        <tr>
+          <td>开户行及账号：</td>
+          <td>
+            {{info.bankName}}<br/>
+            {{info.bankBranch}} {{info.bankNo}}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    props: {
+      source: {
+        type: Object,
+        default() {
+          return {}
+        }
+      },
+      info: {
+        type: Object,
+        default() {
+          return {}
+        }
+      }
+    },
+    data() {
+      return {
+        // info: {}
+      }
+    },
+    components: {
+
+    },
+    methods: {
+      // async getSource() {
+      //   let _res = await this.Api.getMerCard({
+      //     merManager: {id: this.source.id}
+      //   });
+      //   if (_res && _res.data) {
+      //     this.info = _res.data;
+      //   } else {
+      //     this.info = {};
+      //   }
+      // }
+    },
+    async mounted() {
+      // this.getSource();
+    }
+  }
+</script>
+<style type="text/scss" lang="scss" scoped>
+  .img-list{
+    padding: 0;
+    margin: 0;
+    li{
+      margin: 0 5px;
+      float: left;
+    }
+  }
+  .img-box{
+    display: flex;
+    width: 100px;
+    height: 100px;
+    padding: 3px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e4e4e4;
+    border-radius: 4px;
+    overflow:hidden;
+    &>span{
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+    img{
+      display: block;
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+   .form-table{
+     td{
+       &:nth-child(odd){
+         width: 170px;
+       }
+       &:nth-child(even){
+         width: 450px;
+       }
+     }
+   }
+</style>
